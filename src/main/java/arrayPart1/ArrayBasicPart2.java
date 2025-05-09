@@ -88,6 +88,80 @@ public class ArrayBasicPart2 {
         return maxWater;
     }
 
+
+    public static int maxSubarray(int[] nums){
+        int n=nums.length;
+        int maxSum=Integer.MIN_VALUE;
+        int currSum=0;
+        int[] preFixSum=new int[n];
+
+        preFixSum[0]=nums[0];
+
+        for (int i=1;i<n;i++){
+            preFixSum[i]=preFixSum[i-1]+nums[i];
+        }
+
+
+        for (int i=0;i<n;i++){
+           int  start=i;
+            for(int j=i;j<n;j++){
+                int end=j;
+
+
+                currSum= start ==0 ? preFixSum[end] : preFixSum[end]-preFixSum[start-1];
+
+                if(maxSum<currSum){
+                    maxSum=currSum;
+                }
+            }
+        }
+
+        return maxSum;
+
+    }
+
+
+    public static void equilibrumIndex(int[] nums){
+        int n=nums.length;
+        int [] prefixSum=new int[n];
+        prefixSum[0]=nums[0];
+
+        int equCount=0;
+
+        for (int i=1;i<n;i++){
+            prefixSum[i]=nums[i]+prefixSum[i-1];
+        }
+
+        //find the equilibrum point
+
+
+        for (int i=0;i<n;i++){
+            int leftSum = (i == 0) ? 0 : prefixSum[i - 1];
+            int rightSum = prefixSum[n - 1] - prefixSum[i];
+
+            if (leftSum == rightSum) {
+                System.out.println("Equilibrium index found at: " + i);
+            }
+        }
+    }
+
+
+    public static int maxProduct(int[] nums){
+
+        int n = nums.length;
+        int maxProduct = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            int product = 1;
+            for (int j = i; j < n; j++) {
+                product *= nums[j];
+                maxProduct = Math.max(maxProduct, product);
+            }
+        }
+
+        return maxProduct;
+    }
+
     public static void main(String[] args) {
         int[] height={4,2,0,6,3,2,5};
 
@@ -100,8 +174,24 @@ public class ArrayBasicPart2 {
         System.out.println("max water in container : "+maxWaterInContainer);
 
 
+
+
         int mostWater = twoPointerWater(container);
 
         System.out.println("max water in container two pointer :"+mostWater);
+
+        int[] maxSubArr={1,-2,-6,4,8,1,-10,9};
+
+        int maxSum= maxSubarray(maxSubArr);
+        System.out.println("sub array max sum :"+maxSum);
+
+        int[] equ={-3,2,4,-1};
+        equilibrumIndex(equ);
+
+        int[] maxProductArr={2,3,-2,4};
+
+       int maxProductSubArray=maxProduct(maxProductArr);
+
+        System.out.println("max product sub array : "+maxProductSubArray);
     }
 }
