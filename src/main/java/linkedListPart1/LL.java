@@ -49,10 +49,15 @@ public class LL {
 
         Node node=new Node(val);
 
-        if (tail==null){
-            insertFirst(val);
+        if(head==null){
+            head=tail=node;
             return;
         }
+
+//        if (tail==null){
+//            insertFirst(val);
+//            return;
+//        }
 
         //step 2
         tail.next=node;
@@ -71,15 +76,28 @@ public class LL {
             return;
         }
 
+        Node newNode=new Node(val);
         Node temp=head;
+        int i=0;
 
-        for (int i=1;i<index;i++){
+        while (i<index-1){
             temp=temp.next;
+            i++;
         }
 
-        Node newNode=new Node(val,temp.next);
+        newNode.next=temp.next;
 
         temp.next=newNode;
+
+//        Node temp=head;
+//
+//        for (int i=1;i<index;i++){
+//            temp=temp.next;
+//        }
+//
+//        Node newNode=new Node(val,temp.next);
+//
+//        temp.next=newNode;
     }
 
     public int deleteFirst(){
@@ -205,6 +223,29 @@ public class LL {
             curr=next;
         }
         head=prev;
+    }
+
+    public int helper(Node head,int key){
+        if (head==null){
+            return -1;
+        }
+
+        if (head.value==key){
+            return 0;
+        }
+
+        int index=helper(head.next,key);
+
+        if (index==-1){
+            return -1;
+        }
+
+        return index+1;
+
+    }
+
+    public void recSearch(int key){
+        return helper(head,key);
     }
 
 

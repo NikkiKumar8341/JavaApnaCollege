@@ -39,5 +39,15 @@ public class Main {
 
         linkList.display();
 
+        linkList.insertLast(69);
+        linkList.display();
+
+
+        System.out.println(linkList.get(2));
+
+        System.out.println(linkList.recSearch(69));
+
+        System.out.println(linkList.recSearch(52));
+
     }
 }
