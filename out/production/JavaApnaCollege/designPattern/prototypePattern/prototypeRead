@@ -1,0 +1,17 @@
+Prototype Pattern
+It allows to create new objects by copying/ cloning an existing object.
+
+This is especially useful when the creation process is complex or resource-intensive.
+
+Without Prototype Pattern :
+Creating new objects involves directly instantiating new instances, which can be costly and requires knowledge of the object’s class.
+
+With Prototype Pattern :
+New objects are created by copying an existing prototype instance, which can be more efficient and simplifies the creation of complex objects with similar structures.
+
+
+Example :
+
+Using the clone method, we can simply return a clone Student object. Also we can change attributes using getters and setters.
+If there are many attributes and those attributes come from the database, if we crate a new object, it will take time.
+Using the prototype pattern we can copy the existing object which is efficient.

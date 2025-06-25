@@ -1,5 +1,6 @@
 package arrayPart1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -118,6 +119,7 @@ public class ArrayBasicPart1 {
         return max_sum;
 
     }
+
 
 
     public static int maxSubArray(int[] nums) {

@@ -1,0 +1,8 @@
+Liskov substitution Principle (LSP)
+
+This principle states that “Derived or child classes must be substitutable for their base or parent classes”.
+In other words, if class A is a subtype of class B, then we should be able to replace B with A without interrupting the behavior of the program.
+
+This principle is bit tricky and interesting all it designed based on Inheritance concepts ,so let’s better understand this with an example
+
+Let’s consider I have an abstract class called SocialMedia , who supported all social media activity for user to entertain them like below

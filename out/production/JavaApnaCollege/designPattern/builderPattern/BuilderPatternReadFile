@@ -1,0 +1,15 @@
+Builder Pattern
+Used to construct complex objects step by step.
+
+It useful when the object being built has many optional parts (optional attributes) or requires multiple steps for construction.
+
+Without Builder Pattern :
+Object construction is complex and tightly coupled with the object’s class,
+making it hard to create different representations or configurations.
+· As the number of attributes increases, you need multiple constructors to cover all possible combinations.
+If you use only one constructor, your constructor is long and you have to remember the order of the properties to pass.
+
+With Builder Pattern :
+Object creation is separated from its representation,
+allowing flexible and incremental construction of complex objects,
+and supporting different configurations and representations.

@@ -1,0 +1,31 @@
+<--------------Singleton Design PAttern-------------------->
+
+The Singleton design pattern ensures that a class has only one instance and provides a global point of access to that instance.
+
+This is especially useful for situations where exactly one object is needed to coordinate actions across the system,
+ such as database connections, logging services, resource management (eg thread pools).
+
+ Private constructor: Prevents direct instantiation outside the class.
+ Static member: Holds the single instance of the class.
+ Public static method: Provides access to the single instance.
+
+
+ ✅ What is Eager Initialization in Java?
+ ans)Eager Initialization means creating the object at the time of class loading, even if it may never be used.\
+
+ | Feature                | Eager            | Lazy                       |
+ | ---------------------- | ---------------- | -------------------------- |
+ | Creation Time          | At class loading | When requested first time  |
+ | Thread-safe?           | Yes (by default) | No (needs synchronization) |
+ | Memory Efficient?      | No               | Yes                        |
+ | Performance on startup | Slightly slower  | Faster                     |
+✅ What is Lazy Initialization?
+Lazy Initialization means delaying the creation of an object until it's needed for the first time.
+
+Unlike eager initialization (which creates the object when the class is loaded),
+lazy initialization avoids creating the object unless it’s actually used.
+
+❌ Problem in Multithreading
+If two threads call getInstance() at the same time, two instances may be created.
+
+ Thread-Safe Lazy Initialization (Using synchronized)

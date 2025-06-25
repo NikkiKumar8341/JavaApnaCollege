@@ -1,0 +1,17 @@
+Factory Method Pattern
+Provides a way to encapsulate the instantiation of objects.
+
+The primary intent of the Factory Design Pattern is to define an interface for creating an object, but allow subclasses to alter the type of objects that will be created.
+
+Without Factory Pattern (Factory class) :
+
+Code has direct dependency on concrete classes, making it hard to change, extend, or manage object creation.
+
+With Factory Pattern (Factory class):
+
+Object creation is centralized and abstracted, allowing flexibility in choosing object types and making the code easier to maintain and extend.
+
+Example :
+
+The main (client) uses the ShapeInstanceFactory object to create a shape based on the keyword ("circle", "square", "rectangle").
+The Shapeinstancefactory class has a getShapeInstance method that returns one of these Shape types based on the keyword.

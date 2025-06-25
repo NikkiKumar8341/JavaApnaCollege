@@ -1,0 +1,14 @@
+Abstract Factory Pattern
+The Abstract Factory Pattern is an extension of the Factory Method Pattern.
+
+The Abstract Factory Pattern aims to encapsulate a group of individual factories with a common theme.
+It provides a way to create families of related objects without specifying their concrete classes.
+
+
+Example:
+
+The client uses the FactoeyProducer class to create a VehicleFactory based on the type.
+This factory can make a specific car or motorcycle. FactoryProducer has a static method called getFactory.
+It returns one of these concrete factories (ToyotaFactory or HondaFactory) based on the keyword.
+These concrete factories manufacture specialized cars and motorcycles.
+

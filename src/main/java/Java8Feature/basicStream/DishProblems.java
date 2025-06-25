@@ -35,6 +35,14 @@ public class DishProblems {
         List<Dish> isVeg = getListOfDish().stream().filter(Dish::isVegetarian)
                 .collect(Collectors.toList());
 
+
+        Map<Dish.Type, List<Dish>> collect3 = getListOfDish()
+                .stream()
+                .collect(groupingBy(Dish::getType));
+
+        System.out.println(collect3);
+
+
         System.out.println("veg dishes"+isVeg);
 
         isVeg.forEach(System.out::println);

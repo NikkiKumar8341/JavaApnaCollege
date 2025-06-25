@@ -244,12 +244,106 @@ public class LL {
 
     }
 
-    public void recSearch(int key){
+    public int recSearch(int key){
         return helper(head,key);
     }
 
+    public Node removeNthNode(Node head,int n){
+        if (head.next==null){
+            return null;
+        }
 
-    private class Node{
+
+        int size=0;
+
+        Node curr=head;
+
+        while (curr!=null){
+            curr=curr.next;
+            size++;
+        }
+
+        int indexSearch=size-n;
+
+        Node prev=head;
+
+        int i=1;
+        while (i<indexSearch){
+            prev=prev.next;
+            i++;
+        }
+        prev.next=prev.next.next;
+
+        return head;
+    }
+
+    public void insertrec(int val,int index){
+
+        head=insertRec(val,index,head);
+    }
+
+
+    private Node insertRec(int val,int index,Node node){
+
+        if (index==0){
+            Node temp=new Node(val,node);
+            size++;
+            return temp;
+        }
+
+        node.next= insertRec(val, index-1, node.next);
+
+        return node;
+
+    }
+
+    public static LL merge(LL first,LL second){
+        Node f=first.head;
+        Node s=second.head;
+
+        LL ans=new LL();
+
+        while (f!=null && s!=null){
+            if (f.value <s.value){
+               ans.insertLast(f.value);
+               f=f.next;
+            }else {
+                ans.insertLast(s.value);
+                s=s.next;
+            }
+        }
+        while (f!=null){
+            ans.insertLast(f.value);
+            f=f.next;
+        }
+
+        while (s!=null){
+            ans.insertLast(s.value);
+            s=s.next;
+        }
+
+        return ans;
+    }
+
+    public  void insertArr(int[] arr){
+
+        if (arr.length==0){
+            head=null;
+            return;
+        }
+
+        Node head = new Node(arr[0]);
+        Node current = head;
+
+        for (int i=1;i< arr.length;i++){
+            current.next=new Node(arr[i]);
+             current=current.next;
+        }
+
+    }
+
+
+    private static class Node{
         private int value;
         private Node next;
 
